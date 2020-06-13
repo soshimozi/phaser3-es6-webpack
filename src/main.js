@@ -1,30 +1,30 @@
 import 'phaser';
-import BootScene from './BootScene';
-import MarioBrosScene from './MarioBrosScene';
-import TitleScene from './TitleScene';
+import BootScene from './scenes/BootScene';
+import GameScene from './scenes/GameScene';
+import TitleScene from './scenes/TitleScene';
 
-
-let config = {
+const config = {
+    // For more settings see <https://github.com/photonstorm/phaser/blob/master/src/boot/Config.js>
     type: Phaser.WEBGL,
+    pixelArt: true,
+    roundPixels: true,
     parent: 'content',
     width: 400,
     height: 240,
-    scaleMode: 0, //Phaser.ScaleManager.EXACT_FIT,
     physics: {
         default: 'arcade',
         arcade: {
-            gravity: { y: 800 },
+            gravity: {
+                y: 800
+            },
             debug: false
         }
     },
     scene: [
         BootScene,
         TitleScene,
-        MarioBrosScene,
+        GameScene
     ]
 };
 
-let game = new Phaser.Game(config);
-
-/*
-https://codepen.io/samme/pen/JMVBeV*/
+const game = new Phaser.Game(config); // eslint-disable-line no-unused-vars
